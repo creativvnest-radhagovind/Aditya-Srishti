@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --canvas-sage: #8A9377;
+    --canvas-sage-deep: #768064;
+    --paper-white: #FCFBF8;
+    --wash-sage: #E2EBE3;
+    --ink-olive: #2C3126;
+    --ink-muted: #5F6655;
+    --accent-olive: #4D5736;
+    --accent-olive-hover: #3D462A;
+    --accent-gold: #A6884E;
+    --border-subtle: rgba(77, 87, 54, 0.22);
+  }
+
+  body {
+    font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', Georgia, serif;
+    background-color: var(--canvas-sage);
+    color: var(--ink-olive);
+    overflow-x: hidden;
+  }
+}
+
+.font-display {
+  font-family: 'Cormorant Garamond', 'Noto Serif Devanagari', Georgia, serif;
+}
+
+.font-devanagari {
+  font-family: 'Noto Serif Devanagari', Georgia, serif;
+}
+
+.font-ui {
+  font-family: 'Plus Jakarta Sans', 'Noto Serif Devanagari', sans-serif;
+}
+
+/* Soft watercolor paper grain & sage wash texture */
+.bg-sage-watercolor {
+  background-color: #E2EBE3;
+  background-image:
+    radial-gradient(at 18% 25%, rgba(168, 189, 165, 0.42) 0px, transparent 55%),
+    radial-gradient(at 82% 72%, rgba(154, 177, 152, 0.36) 0px, transparent 58%),
+    radial-gradient(at 50% 50%, rgba(252, 251, 248, 0.35) 0px, transparent 70%);
+}
+
+/* Gentle Botanical Animations (compositor-only, reduced-motion safe) */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes petal-drift {
+    0% {
+      transform: translate3d(0, -10vh, 0) rotate(0deg);
+      opacity: 0;
+    }
+    12% {
+      opacity: 0.55;
+    }
+    85% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translate3d(36px, 102vh, 0) rotate(220deg);
+      opacity: 0;
+    }
+  }
+
+  .animate-petal {
+    animation: petal-drift var(--petal-duration, 19s) linear var(--petal-delay, 0s) infinite;
+  }
+}
